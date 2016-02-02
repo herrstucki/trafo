@@ -1,0 +1,27 @@
+{
+  "name": "trafo",
+  "version": "0.1.0",
+  "description": "Babel in the browser",
+  "main": "trafo.min.js",
+  "files": [
+    "trafo.js",
+    "trafo.min.js"
+  ],
+  "scripts": {
+    "test": "make test",
+    "prepublish": "make build"
+  },
+  "keywords": [
+    "babel",
+    "standalone",
+    "browser"
+  ],
+  "author": "Jeremy Stucki",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "babel-standalone": "^6.4.4"
+  },
+  "devDependencies": {
+    "webpack": "^1.12.12"
+  }
+}
