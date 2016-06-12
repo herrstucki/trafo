@@ -1,7 +1,7 @@
 {
   "name": "trafo",
   "version": "0.1.1",
-  "description": "Babel in the browser",
+  "description": "ES2015 in the browser",
   "main": "trafo.min.js",
   "files": [
     "trafo.js",
@@ -12,16 +12,20 @@
     "prepublish": "make build"
   },
   "keywords": [
-    "babel",
+    "es2015",
+    "buble",
     "standalone",
     "browser"
   ],
   "author": "Jeremy Stucki",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "babel-standalone": "^6.4.4"
+    "buble": "^0.10.6"
   },
   "devDependencies": {
-    "webpack": "^1.12.12"
+    "rollup": "^0.31.0",
+    "rollup-plugin-commonjs": "^3.0.0",
+    "rollup-plugin-node-resolve": "^1.7.0",
+    "rollup-plugin-uglify": "^0.3.1"
   }
 }

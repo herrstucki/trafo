@@ -1,12 +1,15 @@
-.PHONY: test
+.PHONY: test clean
 
 build: node_modules trafo.js trafo.min.js
 
+clean:
+	rm -f trafo.*
+
 trafo.js: index.js
-	$$(npm bin)/webpack $< $@
+	NODE_ENV=development BABEL_ENV=rollup $$(npm bin)/rollup $< --config=./rollup.config.js --output=./$@
 
 trafo.min.js: index.js
-	$$(npm bin)/webpack -p $< $@
+	NODE_ENV=production BABEL_ENV=rollup $$(npm bin)/rollup $< --config=./rollup.config.js --output=./$@
 
 test: trafo.js
 	hs -o

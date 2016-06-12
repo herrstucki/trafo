@@ -1,6 +1,6 @@
 // Adapted from https://github.com/danmartinez101/throw-in-the-towel/blob/master/index.js to use babel-standalone with actual presets
 
-var Babel = require('babel-standalone');
+import {transform} from 'buble';
 
 onReady(init)
 
@@ -10,7 +10,7 @@ function init() {
 
 function locate() {
   return Array.prototype.slice.call(
-    document.querySelectorAll('script[type="text/babel"]')
+    document.querySelectorAll('script[type="text/trafo"]')
   )
 }
 
@@ -44,12 +44,7 @@ function extract(script) {
 
 function reify(scripts) {
   return scripts.map(function (script) {
-    var opts = {
-      filename: script.name
-    }
-    opts.sourceMaps = "inline"
-    opts.presets = ['es2015-loose', 'react', 'stage-2'];
-    return new Function(Babel.transform(script.source, opts).code)()
+    return new Function(transform(script.source, opts).code)()
   })
 }
 
